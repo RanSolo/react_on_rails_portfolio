@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_04_180904) do
+ActiveRecord::Schema.define(version: 2018_10_04_184851) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,38 @@ ActiveRecord::Schema.define(version: 2018_10_04_180904) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "code_blocks", force: :cascade do |t|
+    t.integer "example_id"
+    t.text "block"
+    t.text "description"
+    t.string "location"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["example_id"], name: "index_code_blocks_on_example_id"
+  end
+
+  create_table "examples", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "steps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "urls", force: :cascade do |t|
+    t.integer "example_id"
+    t.integer "code_block_id"
+    t.string "actual"
+    t.string "description"
+    t.integer "url_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code_block_id"], name: "index_urls_on_code_block_id"
+    t.index ["example_id"], name: "index_urls_on_example_id"
+    t.index ["url_type"], name: "index_urls_on_url_type"
   end
 
 end
