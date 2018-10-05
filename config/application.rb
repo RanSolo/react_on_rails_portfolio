@@ -17,6 +17,7 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 module ReactOnRailsPortfolio
+  # Application class
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -26,6 +27,7 @@ module ReactOnRailsPortfolio
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.app_generators.scaffold_controller = :scaffold_controller
 
     # Middleware for ActiveAdmin
     config.middleware.use Rack::MethodOverride
