@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://blog.heroku.com/a-rock-solid-modern-web-stack
 
-Things you may want to cover:
+Rock-solid CMS and API with the absolute best in front-end tooling, built as a single project and hosted seamlessly on Heroku.
 
 * Ruby version
-
-* System dependencies
+  2.5.1p57
 
 * Configuration
+  Rails 5 API + ActiveRecord + ActiveAdmin + Create React App
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  bin/rake start
