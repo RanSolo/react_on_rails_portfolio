@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 # Examples
 api_creation = Example.create(
@@ -32,3 +32,34 @@ api_creation.urls.create(
   actual: 'https://www.dropbox.com/s/j8sso0ni13b0euc/Screenshot%202018-10-04%2017.16.40.png?dl=0',
   description: 'Screenshot of JSON api/examples only one example is created  with one  related URL.',
   url_type: 2)
+
+# Associated code_blocks
+code_block = api_creation.code_blocks.create(
+  location: 'Examples Controller',
+  description: 'Shows the GET verbs for example index and show data queries.',
+  block: '
+  # Examples controller inherits from the ApiControllerclass
+  class ExamplesController < ApiController
+    # GET /examples
+    def index
+      @examples = Example.select("id, title, description").all
+      render json: @examples.to_json(
+        :include => { :urls => { :only => [:id, :url_type, :description] },
+        :code_blocks => { :only => [:id, :location] } }
+      )
+    end
+
+    # GET /examples/1
+    def show
+      @example = Example.find(params[:id])
+      render json: @example.to_json(
+        :include => { :urls => { :only => [:id, :description,
+                                           :actual, :url_type] },
+        :code_blocks => { :only => [:id, :location, :block, :description] }}
+      )
+    end
+  end')
+
+code_block.urls.create(
+  actual: 'www.screenshot.com', url_type: 2,
+  description: "Screenshot of code in action")

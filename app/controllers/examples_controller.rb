@@ -5,8 +5,7 @@ class ExamplesController < ApiController
     @examples = Example.select("id, title, description").all
     render json: @examples.to_json(
       :include => { :urls => { :only => [:id, :description, :url_type] },
-      :code_blocks => { :only => [:id, :location] } }
-    )
+      :code_blocks => { :only => [:id, :location] } })
   end
 
   # GET /examples/1
@@ -15,7 +14,6 @@ class ExamplesController < ApiController
     render json: @example.to_json(
       :include => { :urls => { :only => [:id, :description,
                                          :actual, :url_type] },
-      :code_blocks => { :only => [:id, :location, :block, :description] }}
-    )
+      :code_blocks => { :only => [:id, :location, :block, :description] } })
   end
 end
