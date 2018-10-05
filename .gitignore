@@ -20,7 +20,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore public, as it is built on deploy
+# Ignore public, as it's built on deploy
 # # Place files for /public in /client/public
 # /public
 /public
