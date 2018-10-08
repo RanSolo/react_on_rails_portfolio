@@ -15,9 +15,10 @@ class ExampleList extends Component {
     const { items } = this.state;
     return (
       <Container>
+        <h1>Examples</h1>
         <Button
-          color="dark"
-          style={{marginBottom: '2rem'}}
+          color="success"
+          style={{marginBottom: '1rem'}}
           onClick={() => {
             const title = prompt('Enter Item');
             if(title) {
@@ -27,13 +28,23 @@ class ExampleList extends Component {
             }
           }}
         >
-          Add Example
+          +
         </Button>
         <ListGroup>
-          <TransitionGroup class='example-list'>
+          <TransitionGroup className='example-list'>
             {items.map(({ id, title}) => (
               <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
+                  <Button
+                    className="remove-btn"
+                    color="danger"
+                    size="sm"
+                    onClick={() => {
+                      this.setState(state => ({
+                        items: state.items.filter(item => item.id !== id)
+                      }));
+                    }}
+                  >&times;</Button>
                   {title}
                 </ListGroupItem>
               </CSSTransition>
