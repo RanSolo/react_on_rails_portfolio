@@ -29,6 +29,17 @@ class ExampleList extends Component {
         >
           Add Example
         </Button>
+        <ListGroup>
+          <TransitionGroup class='example-list'>
+            {items.map(({ id, title}) => (
+              <CSSTransition key={id} timeout={500} classNames="fade">
+                <ListGroupItem>
+                  {title}
+                </ListGroupItem>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+        </ListGroup>
       </Container>
     );
   }
