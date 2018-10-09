@@ -1,18 +1,18 @@
 import uuid from 'uuid';
-import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE } from '../actions/types';
+import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE, EXAMPLES_LOADING } from '../actions/types';
 
 const initialState = {
-  examples: [
-    { id: uuid(), title: 'RESTful API creation', description: 'From scratch', steps: 8 },
-    { id: uuid(), title: 'Webstack: Rails 5.2 API, ActiveAdmin CMS, React Front End' }
-  ]
+  examples: [],
+  loading: false
 };
 
 export default function(state = initialState, action) {
   switch(action.type) {
     case GET_EXAMPLES:
       return {
-        ...state
+        ...state,
+        examples: action.payload,
+        loading: false
       };
     case DELETE_EXAMPLE:
       return {
