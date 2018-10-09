@@ -1,9 +1,16 @@
-import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE } from './types';
+import axios from 'axios'
+import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE, EXAMPLES_LOADING } from './types';
 
-export const getExamples = () => {
-  return {
-    type: GET_EXAMPLES
-  };
+export const getExamples = () => dispatch => {
+  dispatch(setExamplesLoading());
+  axios
+    .get('/api/examples')
+    .then(res =>
+      dispatch({
+        type: GET_EXAMPLES,
+        payload: res.data
+      })
+    )
 };
 
 export const deleteExample = id => {
