@@ -1,3 +1,4 @@
 export const GET_EXAMPLES = 'GET_EXAMPLES';
 export const ADD_EXAMPLE = 'ADD_EXAMPLE';
 export const DELETE_EXAMPLE = 'DELETE_EXAMPLE';
+export const EXAMPLES_LOADING = 'EXAMPLES_LOADING';

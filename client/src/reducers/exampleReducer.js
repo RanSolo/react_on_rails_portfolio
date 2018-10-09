@@ -23,6 +23,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         examples: [action.payload, ...state.examples]
+      };
+    case EXAMPLES_LOADING:
+      return {
+        ...state,
+        loading: true
       }
     default:
       return state;

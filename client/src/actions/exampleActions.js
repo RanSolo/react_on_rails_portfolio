@@ -26,3 +26,9 @@ export const addExample = example => {
     payload: example
   };
 };
+
+export const setExamplesLoading = () => {
+  return {
+    type: EXAMPLES_LOADING
+  }
+}
