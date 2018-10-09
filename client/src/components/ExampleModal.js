@@ -57,8 +57,8 @@ class ExampleModal extends Component {
           color="success"
           style={{marginBottom: '1rem'}}
           onClick={this.toggle}
-          >+</Button>
-
+          >+
+        </Button>
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
