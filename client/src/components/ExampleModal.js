@@ -75,7 +75,7 @@ class ExampleModal extends Component {
                   placeholder="Add title"
                   onChange={this.onChange}
                 />
-              <Label for="description">Description</Label>
+                <Label for="description">Description</Label>
                 <Input
                   type="text"
                   description="description"
@@ -83,7 +83,7 @@ class ExampleModal extends Component {
                   placeholder="Add description"
                   onChange={this.onChange}
                 />
-              <Label for="steps">Steps</Label>
+                <Label for="steps">Steps</Label>
                 <Input
                   type="integer"
                   description="steps"
@@ -91,11 +91,12 @@ class ExampleModal extends Component {
                   placeholder="How many steps"
                   onChange={this.onChange}
                 />
-              <Button
-                color="dark"
-                style={{marginTop: '1rem'}}
-                block
-                >Add Example</Button>
+                <Button
+                  color="dark"
+                  style={{marginTop: '1rem'}}
+                  block
+                  >Add Example
+                </Button>
               </FormGroup>
             </form>
           </ModalBody>
