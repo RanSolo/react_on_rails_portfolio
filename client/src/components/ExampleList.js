@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { getExamples } from '../actions/exampleActions';
+import { getExamples, deleteExample } from '../actions/exampleActions';
 import PropTypes from 'prop-types';
 
 class ExampleList extends Component {
   componentDidMount() {
     this.props.getExamples();
   }
+
+  onDeleteClick = (id) => {
+    this.props.deleteExample(id)
+  };
+
   render() {
     const { examples } = this.props.example;
     return (
       <Container>
         <h1>Examples</h1>
-        <Button
-          color="success"
-          style={{marginBottom: '1rem'}}
-          onClick={() => {
-            const title = prompt('Enter Example');
-            if(title) {
-              this.setState(state => ({
-                examples: [...state.examples, {id: uuid(), title}]
-              }));
-            }
-          }}
-        >
-          +
-        </Button>
         <ListGroup>
           <TransitionGroup className='example-list'>
             {examples.map(({ id, title}) => (
@@ -38,13 +28,10 @@ class ExampleList extends Component {
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={() => {
-                      this.setState(state => ({
-                        examples: state.examples.
-                                  filter(example => example.id !== id)
-                      }));
-                    }}
-                  >&times;</Button>
+                    onClick={this.onDeleteClick.bind(this, id)}
+                  >
+                    &times;
+                  </Button>
                   {title}
                 </ListGroupItem>
               </CSSTransition>
@@ -64,4 +51,6 @@ ExampleList.propTypes = {
 const mapStateToProps = (state) => ({
   example: state.example
 });
-export default connect(mapStateToProps, { getExamples })(ExampleList);
+export default connect(
+  mapStateToProps, { getExamples, deleteExample }
+)(ExampleList);
