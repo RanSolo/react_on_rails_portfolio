@@ -10,8 +10,8 @@ import {
   Input
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import uuid from 'uuid';
 import { addExample } from '../actions/exampleActions';
+import { BrowserRouter as Router, Link, Route, withRouter} from 'react-router-dom';
 
 class ExampleModal extends Component {
   state = {

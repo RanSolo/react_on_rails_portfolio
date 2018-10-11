@@ -1,5 +1,11 @@
 import axios from 'axios'
-import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE, EXAMPLES_LOADING } from './types';
+import {
+  GET_EXAMPLES,
+  ADD_EXAMPLE,
+  SHOW_EXAMPLE,
+  DELETE_EXAMPLE,
+  EXAMPLES_LOADING
+} from './types';
 
 export const getExamples = () => dispatch => {
   dispatch(setExamplesLoading());

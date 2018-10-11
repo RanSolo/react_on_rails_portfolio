@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import ExampleModal from './ExampleModal';
+import Example from './Example';
 import { connect } from 'react-redux';
 import { getExamples, deleteExample } from '../actions/exampleActions';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Link, Route, withRouter} from 'react-router-dom';
 
 class ExampleList extends Component {
   componentDidMount() {
@@ -19,9 +22,10 @@ class ExampleList extends Component {
     return (
       <Container>
         <h1>Examples</h1>
+        <ExampleModal />
         <ListGroup>
           <TransitionGroup className='example-list'>
-            {examples.map(({ id, title}) => (
+            {examples.map(({ id, title }) => (
               <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button
@@ -32,7 +36,9 @@ class ExampleList extends Component {
                   >
                     &times;
                   </Button>
-                  {title}
+                  <Link to={`/examples/${id}`}>
+                    {title}
+                  </Link>
                 </ListGroupItem>
               </CSSTransition>
             ))}
