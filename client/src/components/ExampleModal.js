@@ -37,7 +37,6 @@ class ExampleModal extends Component {
     e.preventDefault();
 
     const newExample = {
-      id: uuid(),
       title: this.state.title,
       description: this.state.description,
       steps: this.state.steps
@@ -65,7 +64,7 @@ class ExampleModal extends Component {
         >
           <ModalHeader toggle={this.toggle}>Add New Example</ModalHeader>
           <ModalBody>
-            <form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for="title">Title</Label>
                 <Input
@@ -98,7 +97,7 @@ class ExampleModal extends Component {
                   >Add Example
                 </Button>
               </FormGroup>
-            </form>
+            </Form>
           </ModalBody>
         </Modal>
       </div>

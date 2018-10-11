@@ -51,6 +51,7 @@ ExampleList.propTypes = {
 const mapStateToProps = (state) => ({
   example: state.example
 });
+
 export default connect(
   mapStateToProps, { getExamples, deleteExample }
 )(ExampleList);

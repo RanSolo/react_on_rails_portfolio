@@ -1,5 +1,10 @@
-import uuid from 'uuid';
-import {GET_EXAMPLES, ADD_EXAMPLE, DELETE_EXAMPLE, EXAMPLES_LOADING } from '../actions/types';
+import {
+  GET_EXAMPLES,
+  ADD_EXAMPLE,
+  SHOW_EXAMPLE,
+  DELETE_EXAMPLE,
+  EXAMPLES_LOADING
+} from '../actions/types';
 
 const initialState = {
   examples: [],
@@ -23,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         examples: [action.payload, ...state.examples]
+      };
+    case SHOW_EXAMPLE:
+      return {
+        ...state,
+        example: [action.payload]
       };
     case EXAMPLES_LOADING:
       return {
