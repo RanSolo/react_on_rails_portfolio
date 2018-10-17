@@ -12,9 +12,21 @@ class ExamplesController < ApiController
   def show
     @example = Example.find(params[:id])
     render json: @example.to_json(
-      :include => { :urls => { :only => [:id, :description,
-                                         :actual, :url_type] },
-      :code_blocks => { :only => [:id, :location, :block, :description] } })
+      :include => {
+        :urls => {
+          :only => [:id, :description,
+                    :actual, :url_type]
+        },
+        :code_blocks => {
+          :only => [:id, :location, :block, :description],
+          :include => {
+            :urls => {
+              :only => [:id, :description, :actual, :url_type, :order]
+            }
+          }
+        }
+      }
+    )
   end
 
   ##
