@@ -20,8 +20,7 @@ class Example extends Component {
   }
 
   render() {
-    const example = this.props.example
-
+    const example = this.props.example;
     if (this.props.example) {
       const example = this.props.example[0];
       return (
@@ -45,44 +44,33 @@ class Example extends Component {
             </ListGroupItem>
           </ListGroup>
           <h3>Associated Code Blocks</h3>
+
           {example.code_blocks.map(({
             id, description, block, location,urls }) => (
-            <Table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Location</th>
-                  <th>Description</th>
-                  <th>Block</th>
-                  <th>URLS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>
-                    <Button color="link" target="_blank" href={location}>
-                      On Github
-                    </Button>
-                  </td>
-                  <td>{description}</td>
-
-                  <td><code><pre>{block}</pre></code></td>
-
-                  <td>
-                    {urls.map(({actual, url_type}) => (
-                      <ListGroup key={url_type}>
-                        <ListGroupItem>
-                          <Button href={actual} color="link" target="_blank">
-                            {url_type}
-                          </Button>
-                        </ListGroupItem>
-                      </ListGroup>
-                    ))}
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            <ListGroup key={example.order}>
+              <ListGroupItem>
+                <Button color="link" target="_blank" href={location}>
+                  On Github
+                </Button>
+              </ListGroupItem>
+              <ListGroupItem>
+                {description}
+              </ListGroupItem>
+              <ListGroupItem>
+                <code><pre>{block}</pre></code>
+              </ListGroupItem>
+              <ListGroupItem>
+                {urls.map(({actual, url_type}) => (
+                  <ListGroup key={url_type}>
+                    <ListGroupItem>
+                      <Button href={actual} color="link" target="_blank">
+                        {url_type}
+                      </Button>
+                    </ListGroupItem>
+                  </ListGroup>
+                ))}
+              </ListGroupItem>
+          </ListGroup>
           ))}
         </Container>
       );
@@ -103,9 +91,11 @@ const NoScreen = ({description}) => (
 
 const WithScreen = ({actual, description}) => (
   <Media>
-    <Media left href="#">
-      <Media src={actual} alt="screenshot" />
+    {description}
+    <Media href="#">
+      <Media className="img-fluid" src={actual} alt="screenshot" />
     </Media>
+
   </Media>
 );
 
