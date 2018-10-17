@@ -2,5 +2,5 @@ class Url < ApplicationRecord
   belongs_to :example, optional: true
   belongs_to :code_block, optional: true
 
-  enum url_type: [:Link, :Reference, :Screenshot]
+  enum url_type: [:Link, :Reference, :Screenshot, :API_Endpoint]
 end
