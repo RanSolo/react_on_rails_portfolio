@@ -32,7 +32,8 @@ export default function(state = initialState, action) {
     case SHOW_EXAMPLE:
       return {
         ...state,
-        example: [action.payload]
+        example: [action.payload],
+        loading: true
       };
     case EXAMPLES_LOADING:
       return {
