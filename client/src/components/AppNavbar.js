@@ -11,7 +11,7 @@ import {
   NavItem,
   Container } from 'reactstrap';
 import { BrowserRouter as Router, NavLink, Route, withRouter, Switch} from 'react-router-dom';
-
+import Background from '../images/ransolo-pencil-logo.jpg';
 class AppNavbar extends Component {
   state = {
     isOpen: false
@@ -24,11 +24,22 @@ class AppNavbar extends Component {
   render() {
     return (
         <div>
-          <Navbar color="dark" dark expand="sm" className='mb-5'>
+          <Navbar color="dark" dark expand="sm">
             <Container>
-              <NavbarBrand href="/">Randy Russell Portfolio</NavbarBrand>
+              <NavbarBrand href="/">
+                <div className={"img-fluid pull-left rounded"}
+                  style={{
+                    height: "75px",
+                    width: "75px",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundImage: "url(" + Background + ")"}}>
+                </div >
+                Randy Russell's Portfolio
+              </NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
+               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
                     <NavLink to="/">Home</NavLink>

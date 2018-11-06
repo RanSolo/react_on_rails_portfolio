@@ -60,11 +60,12 @@ class Example extends Component {
                 <code><pre>{block}</pre></code>
               </ListGroupItem>
               <ListGroupItem>
-                {urls.map(({actual, url_type}) => (
+                {urls.map(({actual, url_type, description}) => (
                   <ListGroup key={url_type}>
                     <ListGroupItem>
-                      <Button href={actual} color="link" target="_blank">
-                        {url_type}
+                    <Button href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
+                      {url_type}
+                      {description}
                       </Button>
                     </ListGroupItem>
                   </ListGroup>
