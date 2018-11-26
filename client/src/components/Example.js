@@ -63,9 +63,9 @@ class Example extends Component {
                 {urls.map(({actual, url_type, description}) => (
                   <ListGroup key={url_type}>
                     <ListGroupItem>
-                    <Button href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
-                      {url_type}
-                      {description}
+                      <Button href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
+                        {url_type}
+                        {description}
                       </Button>
                     </ListGroupItem>
                   </ListGroup>
