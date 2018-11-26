@@ -22,20 +22,20 @@ class ExampleList extends Component {
     return (
       <Container>
         <h1>Examples</h1>
-        <ExampleModal />
+        {/* <ExampleModal /> */}
         <ListGroup>
           <TransitionGroup className='example-list'>
             {examples.map(({ id, title }) => (
               <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                  <Button
+                  {/* <Button
                     className="remove-btn"
                     color="danger"
                     size="sm"
                     onClick={this.onDeleteClick.bind(this, id)}
                   >
                     &times;
-                  </Button>
+                  </Button> */}
                   <Link to={`/examples/${id}`}>
                     {title}
                   </Link>
