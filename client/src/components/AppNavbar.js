@@ -38,7 +38,7 @@ class AppNavbar extends Component {
                 </div >
 
               </NavbarBrand>
-              <div className={"pull-right"}>Randy Russell's Portfolio</div>
+              <h4 className={"pull-right text-white"}>Randy Russell's Portfolio</h4>
               <NavbarToggler onClick={this.toggle} />
                <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
