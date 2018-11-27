@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import ExampleModal from './ExampleModal';
-import Example from './Example';
 import { connect } from 'react-redux';
 import { getExamples, deleteExample } from '../actions/exampleActions';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Link, Route, withRouter} from 'react-router-dom';
 
 class ExampleList extends Component {
   componentDidMount() {
@@ -36,9 +33,9 @@ class ExampleList extends Component {
                   >
                     &times;
                   </Button> */}
-                  <Link to={`/examples/${id}`}>
+                  <Button to={`/examples/${id}`}>
                     {title}
-                  </Link>
+                  </Button>
                 </ListGroupItem>
               </CSSTransition>
             ))}

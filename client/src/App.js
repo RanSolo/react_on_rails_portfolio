@@ -3,7 +3,6 @@ import AppNavbar from './components/AppNavbar';
 import ExampleList from './components/ExampleList';
 import Example from './components/Example';
 import Home from './components/Home';
-import { Container } from 'reactstrap';
 import { Provider } from 'react-redux';
 import store from './Store';
 
