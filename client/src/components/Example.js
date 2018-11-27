@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Table, Media, Col, Row } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Media, Col, Row } from 'reactstrap';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { showExample } from '../actions/exampleActions';
 
 const screenshotOrNot = (actual, description, url_type) => {
   var screen;
-  if (url_type == 'Screenshot') {
+  if (url_type === 'Screenshot') {
     screen = <WithScreen actual={actual} description={description} />;
   } else {
     screen = <NoScreen description={description} />
@@ -20,7 +19,6 @@ class Example extends Component {
   }
 
   render() {
-    const example = this.props.example;
     if (this.props.example) {
       const example = this.props.example[0];
       return (
@@ -32,8 +30,8 @@ class Example extends Component {
             </ListGroupItem>
             <ListGroupItem>
               <Row>
-                {example.urls.map(({actual, description, url_type}) => (
-                  <Col md={6}>
+                {example.urls.map(({id, actual, description, url_type}) => (
+                  <Col key={id} md={6}>
                     <Button href={actual} color="link" target="_blank">
                       {url_type}
                     </Button>
@@ -47,7 +45,7 @@ class Example extends Component {
 
           {example.code_blocks.map(({
             id, description, block, location,urls }) => (
-            <ListGroup key={example.order}>
+            <ListGroup key={id}>
               <ListGroupItem>
                 <Button color="link" target="_blank" href={location}>
                   On Github
@@ -60,8 +58,8 @@ class Example extends Component {
                 <code><pre>{block}</pre></code>
               </ListGroupItem>
               <ListGroupItem>
-                {urls.map(({actual, url_type, description}) => (
-                  <ListGroup key={url_type}>
+                {urls.map(({id, actual, url_type, description}) => (
+                  <ListGroup key={id}>
                     <ListGroupItem>
                       <Button href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
                         {url_type}

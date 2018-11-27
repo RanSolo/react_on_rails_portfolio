@@ -36,9 +36,10 @@ class AppNavbar extends Component {
                     backgroundSize: "cover",
                     backgroundImage: "url(" + Background + ")"}}>
                 </div >
-
               </NavbarBrand>
-              <h4 className={"pull-right text-white"}>Randy Russell's Portfolio</h4>
+              <h4 className={"pull-right text-white"}>
+                Randy Russell's Portfolio
+              </h4>
               <NavbarToggler onClick={this.toggle} />
                <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
