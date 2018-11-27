@@ -7,8 +7,7 @@ import {
   Nav,
   NavItem,
   Container } from 'reactstrap';
-import { BrowserRouter as Router, NavLink, Route, withRouter, Switch}
-  from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Background from '../images/ransolo-pencil-logo.jpg';
 class AppNavbar extends Component {
   state = {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getExamples, deleteExample } from '../actions/exampleActions';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Link, Route, withRouter, Switch}
+import { Link }
   from 'react-router-dom';
 
 class ExampleList extends Component {
