@@ -4,6 +4,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getExamples, deleteExample } from '../actions/exampleActions';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Link, Route, withRouter, Switch}
+  from 'react-router-dom';
 
 class ExampleList extends Component {
   componentDidMount() {
@@ -33,9 +35,9 @@ class ExampleList extends Component {
                   >
                     &times;
                   </Button> */}
-                  <Button to={`/examples/${id}`}>
+                  <Link to={`/examples/${id}`}>
                     {title}
-                  </Button>
+                  </Link>
                 </ListGroupItem>
               </CSSTransition>
             ))}
