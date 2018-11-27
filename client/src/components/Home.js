@@ -18,14 +18,13 @@ class Home extends Component {
         <h2>CURRENT PROJECTS</h2>
         <ListGroup>
           <ListGroupItem>
-            http://www.milligram.biz
-            milligram.biz - Milligram was created as a web-based medication
-            price transparency engine. Our software helps patients and providers
-            find medication at the lowest price in any given zip code. Our
-            translations support English, Spanish, Tagalog, and Chinese. With
-            our three data partners, Milligram searches prices of medications
-            nationwide at 65,000+ pharmacies, offering the lowest prices on the
-            internet.
+            http://www.milligram.biz - Milligram was created as a web-based
+            medication price transparency engine. Our software helps patients
+            and providers find medication at the lowest price in any given zip
+            code. Our translations support English, Spanish, Tagalog, and
+            Chinese. With our three data partners, Milligram searches prices of
+            medications nationwide at 65,000+ pharmacies, offering the lowest
+            prices on the internet.
           </ListGroupItem>
           <ListGroupItem>
             scholarraise.com - Scholar Raise is a crowdfunding service that
