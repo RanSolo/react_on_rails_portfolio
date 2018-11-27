@@ -24,7 +24,7 @@ class Example extends Component {
       return (
         <Container>
           <h1>An example of {example.title}</h1>
-        <ListGroup key={example.title}>
+          <ListGroup key={example.title}>
             <ListGroupItem>
               {example.description}
             </ListGroupItem>
@@ -42,7 +42,6 @@ class Example extends Component {
             </ListGroupItem>
           </ListGroup>
           <h3>Associated Code Blocks</h3>
-
           {example.code_blocks.map(({
             id, description, block, location,urls }) => (
             <ListGroup key={id}>
@@ -59,14 +58,10 @@ class Example extends Component {
               </ListGroupItem>
               <ListGroupItem>
                 {urls.map(({id, actual, url_type, description}) => (
-                  <ListGroup key={id}>
-                    <ListGroupItem>
-                      <Button href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
-                        {url_type}
-                        {description}
-                      </Button>
-                    </ListGroupItem>
-                  </ListGroup>
+                  <Button key={id} href={actual} className="btn btn-primary btn-lg btn-block" target="_blank">
+                    {url_type}
+                    {description}
+                  </Button>
                 ))}
               </ListGroupItem>
           </ListGroup>
