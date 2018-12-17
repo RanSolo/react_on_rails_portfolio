@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppNavbar from './components/AppNavbar';
 import ExampleList from './components/ExampleList';
 import Example from './components/Example';
+import Emma from './components/Emma';
 import Home from './components/Home';
 import { Provider } from 'react-redux';
 import store from './Store';
@@ -18,9 +19,10 @@ class App extends Component {
           <div className="App">
             <AppNavbar />
             <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/examples/:id" component={Example}/>
-              <Route exact={true} path="/examples" component={ExampleList}/>
+              <Route exact path="/" component={Home} />
+              <Route path="/examples/:id" component={Example} />
+              <Route exact={true} path="/examples" component={ExampleList} />
+              <Route exact={true} path="/emma" component={ Emma } />
             </Switch>
           </div>
         </Router>
@@ -29,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;
