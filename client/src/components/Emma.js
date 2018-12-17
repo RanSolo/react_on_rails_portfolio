@@ -1,4 +1,3 @@
-'use strict';
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 
@@ -38,15 +37,25 @@ console.log(`
 // input number
 const originalNumber = 100;
 // create an array of numbers
-const numbers = Array.from(Array(originalNumber).keys());
 
+const answers = [];
+
+function calculateDevisors(num) {
+  const numbers = Array.from(Array(num).keys());
+  numbers.map( function(n) {
+    if (num % n === 0) {
+      answers.push(n);
+      console.log(`divisible by: ${num} / ${n} = ${num / n}`);
+      console.log(n);
+    }
+    return answers
+  })
+}
+
+console.log(`Devisors Array`);
+console.log(calculateDevisors(originalNumber))
 // log number if original number is divisible by number being checked
-numbers.map( function(n) {
-  if (originalNumber % n === 0) {
-    console.log(`divisible by: ${originalNumber} / ${n} = ${originalNumber / n}`);
-    console.log(n);
-  }
-});
+
 // Question 2 - end
 console.log("/////////////// Question 3 - start///////////////");
 console.log(`
@@ -83,11 +92,10 @@ console.log(validateTriangle(invalidTriangle));
 console.log(`equilateralTriangle2 - expected return true`);
 console.log(validateTriangle(invalidTriangle2));
 // Question 3 - end
+
 console.log("/////////////// Question 4 - start///////////////");
 var testCase1 = [1, 3, 5, 1, 1, 5, 3, 5];
 var testCase2 = [1, 3, 1, 1, 5, 5, 3];
-
-var counts = {};
 
 function countArrayValues(array) {
   let max = 0, maxCounts = [], counts = {};
@@ -101,7 +109,7 @@ function countArrayValues(array) {
   return maxCounts;
 };
 
-console.log('counts');
+console.log('maxCounts: ');
 console.log('testCase1: expected ["1", "5"]');
 console.log(countArrayValues(testCase1));
 console.log('testCase1: expected ["1"]');
@@ -148,8 +156,8 @@ class Emma extends Component {
     return (
       <Container>
         <h1>Emma Code Challenge</h1>
-            Language - Javascript
-            See Console.
+        <p>Language - Javascript</p>
+        <p>See Console.</p>
       </Container>
     );
   }
