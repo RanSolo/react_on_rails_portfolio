@@ -94,6 +94,13 @@ console.log(validateTriangle(invalidTriangle2));
 // Question 3 - end
 
 console.log("/////////////// Question 4 - start///////////////");
+
+console.log(`
+  Question 4 (1 point) Write a function that takes an array of integers, and
+  returns an array of integers. The return value should contain those integers
+  which are most common in the input array.
+`)
+
 var testCase1 = [1, 3, 5, 1, 1, 5, 3, 5];
 var testCase2 = [1, 3, 1, 1, 5, 5, 3];
 
