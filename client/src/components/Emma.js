@@ -89,7 +89,7 @@ console.log(`scaleneTriangle - expected return true`);
 console.log(validateTriangle(scaleneTriangle));
 console.log(`invalidTriangle - expected return false`);
 console.log(validateTriangle(invalidTriangle));
-console.log(`equilateralTriangle2 - expected return true`);
+console.log(`invalidTriangle2 - expected return false`);
 console.log(validateTriangle(invalidTriangle2));
 // Question 3 - end
 
@@ -129,11 +129,15 @@ const users = [
   { id: 2, name: 'sally', },
   { id: 3, name: 'bob', age: 30, },
   { id: 4, name: 'steve', age: 130, },
-  { id: 5, name: 'sally', age: 34, }
+  { id: 5, name: 'sally', age: 34, },
+  // test case for no name given with an object
+  { id: 6, age: 34, }
 ];
 
 const groupedNames= {};
 let nameGroup= [];
+console.log(`The function must not mutate the original array, or any of the
+             objects in the array.`);
 console.log(`users before:`);
 console.log(users);
 
@@ -141,7 +145,9 @@ users.forEach(function(user) {
   nameGroup = users.filter(obj => {
     return user.name  === obj.name
   })
-  groupedNames[nameGroup[0].name] = nameGroup;
+  if (nameGroup[0].name) {
+    groupedNames[nameGroup[0].name] = nameGroup;
+  }
 });
 
 console.log(`groupedNames:`);
@@ -150,7 +156,7 @@ console.log(`Pull Bob from groupedNames with groupedNames['bob']:`);
 console.log(groupedNames['bob']);
 console.log(`users after:`);
 console.log(users);
-console.log(`//////////////////////// End ////////////////////////////////`);
+console.log("//////////////////////// End ////////////////////////////////");
 class Emma extends Component {
   render() {
     return (
